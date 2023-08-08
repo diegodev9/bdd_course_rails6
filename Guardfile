@@ -31,14 +31,14 @@ cucumber_options = {
   # notification: false
 }
 
-guard "cucumber", cucumber_options do
-  watch(%r{^features/.+\.feature$})
-  watch(%r{^features/support/.+$}) { "features" }
+# guard "cucumber", cucumber_options do
+#   watch(%r{^features/.+\.feature$})
+#   watch(%r{^features/support/.+$}) { "features" }
 
-  watch(%r{^features/step_definitions/(.+)_steps\.rb$}) do |m|
-    Dir[File.join("**/#{m[1]}.feature")][0] || "features"
-  end
-end
+#   watch(%r{^features/step_definitions/(.+)_steps\.rb$}) do |m|
+#     Dir[File.join("**/#{m[1]}.feature")][0] || "features"
+#   end
+# end
 
 # Note: The cmd option is now required due to the increasing number of ways
 #       rspec may be run, below are examples of the most common uses.
@@ -70,6 +70,9 @@ guard :rspec, cmd: "bundle exec rspec" do
   dsl.watch_spec_files_for(rails.app_files)
   dsl.watch_spec_files_for(rails.views)
 
+  watch(%r{^app/controllers/(.+)_(controller)\.rb$}) { "spec/features" } #added
+  watch(%r{^app/models/(.+)\.rb$}) { "spec/features" } #added
+
   watch(rails.controllers) do |m|
     [
       rspec.spec.call("routing/#{m[1]}_routing"),
@@ -80,11 +83,11 @@ guard :rspec, cmd: "bundle exec rspec" do
 
   # Rails config changes
   watch(rails.spec_helper)     { rspec.spec_dir }
-  watch(rails.routes)          { "#{rspec.spec_dir}/routing" }
+  watch(rails.routes)          { 'spec' } #{ "#{rspec.spec_dir}/routing" } # added
   watch(rails.app_controller)  { "#{rspec.spec_dir}/controllers" }
 
   # Capybara features specs
-  watch(rails.view_dirs)     { |m| rspec.spec.call("features/#{m[1]}") }
+  watch(rails.view_dirs)     { 'spec/features' } #{ |m| rspec.spec.call("features/#{m[1]}") } # added
   watch(rails.layouts)       { |m| rspec.spec.call("features/#{m[1]}") }
 
   # Turnip features and steps
