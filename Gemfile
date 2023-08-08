@@ -54,6 +54,9 @@ group :development do
   # gem 'annotate', '~> 3.2'
   # gem 'brakeman', '~> 5.4', '>= 5.4.1'
   # gem 'bullet'
+  gem 'guard', '~> 2.18'
+  gem 'guard-rspec', '~> 4.7', '>= 4.7.3', require: false
+  gem 'guard-cucumber', '~> 3.0'
   # gem 'letter_opener'
   # gem 'rails_best_practices', '~> 1.23', '>= 1.23.2'
   # gem 'rubocop', '~> 1.48', '>= 1.48.1', require: false
