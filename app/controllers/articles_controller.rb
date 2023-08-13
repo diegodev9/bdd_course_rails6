@@ -5,21 +5,32 @@ class ArticlesController < ApplicationController
     @articles = Article.all
   end
 
-  def show
-  end
-
   def new
     @article = Article.new
+  end
+
+  def edit
+  end
+
+  def show
   end
 
   def create
     @article = Article.new(article_params)
     if @article.save
-      flash[:notice] = "Article has been created"
-      redirect_to articles_path
+      redirect_to articles_path, notice: "Article has been created"
     else
       flash.now[:alert] = 'Article has not been created'
       render :new
+    end
+  end
+
+  def update
+    if @article.update(article_params)
+      redirect_to @article, notice: "Article has been updated"
+    else
+      flash.now[:alert] = 'Article has not been updated'
+      render :edit
     end
   end
 
