@@ -34,6 +34,11 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def destroy
+    @article.destroy
+    redirect_to articles_path, notice: 'Article has been deleted'
+  end
+
   protected
 
   def resource_not_found
