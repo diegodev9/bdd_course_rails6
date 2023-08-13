@@ -355,6 +355,39 @@
           null
         ]
       },
+      "/media/home/repos/practicas/ruby_on_rails_5_bdd_rspec_capybara/blog/spec/models/article_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/media/home/repos/practicas/ruby_on_rails_5_bdd_rspec_capybara/blog/app/models/article.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/media/home/repos/practicas/ruby_on_rails_5_bdd_rspec_capybara/blog/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/media/home/repos/practicas/ruby_on_rails_5_bdd_rspec_capybara/blog/spec/views/articles/index.html.erb_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
       "/media/home/repos/practicas/ruby_on_rails_5_bdd_rspec_capybara/blog/app/controllers/articles_controller.rb": {
         "lines": [
           1,
@@ -389,23 +422,8 @@
           1,
           null
         ]
-      },
-      "/media/home/repos/practicas/ruby_on_rails_5_bdd_rspec_capybara/blog/app/models/article.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null
-        ]
-      },
-      "/media/home/repos/practicas/ruby_on_rails_5_bdd_rspec_capybara/blog/app/models/application_record.rb": {
-        "lines": [
-          1,
-          1,
-          null
-        ]
       }
     },
-    "timestamp": 1691514276
+    "timestamp": 1691885296
   }
 }
