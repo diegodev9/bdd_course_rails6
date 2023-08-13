@@ -1,3 +1,16 @@
 <div class="mt-5">
-  <%= link_to 'New Article', new_article_path %>
+  <%= link_to 'New Article', new_article_path, class: 'btn btn-primary btn-lg', id: 'new-article-btn' %>
+
+  <% if @articles.empty? %>
+    <h1 id="no-articles">No Articles Created</h1>
+  <% else %>
+    <% @articles.each do |article| %>
+      <div class="card my-2">
+        <div class="card-body">
+          <%= link_to article.title, article_path(article), class: 'card-title' %>
+          <p class="card-text"><%= truncate(article.body, length: 500) %></p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
 </div>
