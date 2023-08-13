@@ -1,7 +1,7 @@
 require 'rails_helper'
 require 'support/database_cleaner'
 
-RSpec.describe 'Editing an article', type: :feature do
+RSpec.describe 'Deleting an article', type: :feature do
   before do
     @article = Article.create(title: 'Title One', body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur fugit impedit inventore, laudantium neque nihil porro ut! Aliquam blanditiis, commodi earum est facere ipsam magni maxime, nihil quod rem sint?')
   end
