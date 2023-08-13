@@ -23,6 +23,13 @@ class ArticlesController < ApplicationController
     end
   end
 
+  protected
+
+  def resource_not_found
+    message = 'The article you are looking for could not be found'
+    redirect_to root_path, alert: 'The article you are looking for could not be found'
+  end
+
   private
 
   def set_article
