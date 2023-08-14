@@ -68,6 +68,7 @@ end
 
 group :test do
   gem 'capybara', '~> 3.39', '>= 3.39.2'
+  gem 'cucumber-rails', require: false
   gem 'database_cleaner', '~> 2.0', '>= 2.0.2'
   gem 'faker', '~> 3.1', '>= 3.1.1'
   gem 'shoulda-matchers', '~> 5.3'
