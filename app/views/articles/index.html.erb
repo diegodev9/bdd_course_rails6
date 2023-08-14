@@ -1,5 +1,7 @@
 <div class="mt-5">
-  <%= link_to 'New Article', new_article_path, class: 'btn btn-primary btn-lg', id: 'new-article-btn' %>
+  <% if user_signed_in? %>
+    <%= link_to 'New Article', new_article_path, class: 'btn btn-primary btn-lg', id: 'new-article-btn' %>
+  <% end %>
 
   <% if @articles.empty? %>
     <h1 id="no-articles">No Articles Created</h1>
@@ -11,7 +13,7 @@
           <p class="card-text"><%= truncate(article.body, length: 500) %></p>
         </div>
         <div class="card-footer">
-          <small>Created by: <%= article.user.email %></small>
+          <small>Created by: <%= article.user&.email %></small>
         </div>
       </div>
     <% end %>
