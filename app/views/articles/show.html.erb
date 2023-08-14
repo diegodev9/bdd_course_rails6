@@ -15,5 +15,59 @@
       <%= link_to 'Delete Article', article_path(@article), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary btn-lg btn-space' %>
     </div>
  <% end %>
+  <hr>
+  <div class="row">
+    <div class="col-12">
+      <%= form_with model: [@article, @comment], class: 'form-horizontal' do |f| %>
+        <% if @comment.errors.any? %>
+          <div class="card card-danger offset-md-1">
+            <h2 class="card-title">
+              <%= pluralize(@comment.errors.count, 'error') %>
+              prohibited this comment from being saved:
+            </h2>
+          </div>
+          <div class="card-body">
+            <ul>
+              <% @comment.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        
+        <div class="mb-2">
+          <%= f.label 'New Comment', class: 'form-label' %>
+          <%= f.text_area :body, rows: 10, class: 'form-control', placeholder: 'your comment' %>
+        </div>
+
+        <div class="mb-2">
+          <%= f.submit 'Add Comment', class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <header>
+      <h2>Comments</h2>
+    </header>
+
+    <div class="row">
+      <div class="col-md-10">
+        <% if @article.comments.present? %>
+          <% persisted_comments(@comments).each do |comment| %>
+            <div class="comment-body">
+              <%= comment.body %>
+            </div>
+            <div class="comment-time">
+              <%= time_ago_in_words(comment.created_at) %>
+              ago by <%= comment.user.email %>
+            </div>
+          <% end %>
+        <% else %>
+          There are no comments to show
+        <% end %>
+      </div>
+    </div>
+  </div>
 </article>
 
