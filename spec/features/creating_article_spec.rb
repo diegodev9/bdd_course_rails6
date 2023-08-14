@@ -15,8 +15,10 @@ RSpec.describe 'Creating Articles', type: :feature do
     fill_in 'article_body', with: 'lorem ipsum' # fill in body
     click_button 'Create Article' # create article
 
+    expect(Article.last.user).to eq(@user)
     expect(page).to have_content('Article has been created') # article has been created
     expect(page.current_path).to eq(articles_path) # article path
+    expect(page).to have_content("Created by: #{@user.email}")
   end
 
   scenario 'A user fails to create a new article' do
