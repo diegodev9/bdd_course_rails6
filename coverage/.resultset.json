@@ -698,12 +698,22 @@
           null,
           null,
           1,
-          10,
+          11,
           null,
           null,
           1,
-          10,
+          11,
           null,
+          null
+        ]
+      },
+      "/media/home/repos/practicas/ruby_on_rails_5_bdd_rspec_capybara/blog/spec/support/devise.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          1,
           null
         ]
       },
@@ -711,7 +721,10 @@
         "lines": [
           1,
           1,
+          1,
           null,
+          1,
+          1,
           1,
           1,
           1,
@@ -733,9 +746,12 @@
         "lines": [
           1,
           1,
+          1,
           null,
           1,
           1,
+          2,
+          2,
           2,
           null,
           null,
@@ -861,13 +877,39 @@
           null
         ]
       },
-      "/media/home/repos/practicas/ruby_on_rails_5_bdd_rspec_capybara/blog/app/controllers/articles_controller.rb": {
+      "/media/home/repos/practicas/ruby_on_rails_5_bdd_rspec_capybara/blog/spec/features/signin_users_spec.rb": {
         "lines": [
           1,
           1,
           null,
           1,
-          13,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/media/home/repos/practicas/ruby_on_rails_5_bdd_rspec_capybara/blog/app/controllers/articles_controller.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          1,
+          15,
           null,
           null,
           1,
@@ -942,7 +984,7 @@
           1,
           1,
           null,
-          37,
+          39,
           null
         ]
       },
@@ -1011,8 +1053,39 @@
           null,
           null
         ]
+      },
+      "/media/home/repos/practicas/ruby_on_rails_5_bdd_rspec_capybara/blog/app/controllers/users/sessions_controller.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
       }
     },
-    "timestamp": 1692014562
+    "timestamp": 1692017222
   }
 }
