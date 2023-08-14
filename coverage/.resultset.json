@@ -698,11 +698,11 @@
           null,
           null,
           1,
-          14,
+          12,
           null,
           null,
           1,
-          14,
+          12,
           null,
           null
         ]
@@ -927,39 +927,6 @@
           null
         ]
       },
-      "/media/home/repos/practicas/ruby_on_rails_5_bdd_rspec_capybara/blog/spec/requests/articles_spec.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          1,
-          1,
-          2,
-          null,
-          null,
-          1,
-          1,
-          2,
-          null,
-          1,
-          1,
-          null,
-          null,
-          null,
-          1,
-          2,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
       "/media/home/repos/practicas/ruby_on_rails_5_bdd_rspec_capybara/blog/app/controllers/articles_controller.rb": {
         "lines": [
           1,
@@ -1007,14 +974,14 @@
           1,
           null,
           1,
-          1,
-          1,
+          0,
+          0,
           null,
           null,
           1,
           null,
           1,
-          12,
+          10,
           null,
           null,
           1,
@@ -1042,7 +1009,7 @@
           1,
           1,
           null,
-          47,
+          43,
           null
         ]
       },
@@ -1144,6 +1111,6 @@
         ]
       }
     },
-    "timestamp": 1692019431
+    "timestamp": 1692019572
   }
 }
