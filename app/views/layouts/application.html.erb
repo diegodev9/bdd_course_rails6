@@ -45,8 +45,13 @@
           </li>
         </ul>
         <form class="d-flex">
-          <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-outline-success' %>
-          <%= link_to 'Signout', destroy_user_session_path, method: :delete, class: 'btn btn-outline-danger ms-2' %>
+          <% if user_signed_in? %>
+            <p>Signed in as <%= "#{current_user.email}" %></p>
+            <%= link_to 'Signout', destroy_user_session_path, method: :delete, class: 'btn btn-outline-danger ms-2' %>
+          <% else %>
+            <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-outline-success' %>
+            <%= link_to 'Sign in', new_user_session_path, class: 'btn btn-outline-danger ms-2' %>
+          <% end %>
         </form>
       </div>
     </div>

@@ -1,7 +1,13 @@
 require 'rails_helper'
 require 'support/database_cleaner'
+require 'support/devise'
 
 RSpec.describe 'Creating Articles', type: :feature do
+  before do
+    @user = User.create(email: 'user@example.com', password: 'password')
+    sign_in @user
+  end
+
   scenario 'A user creates a new article' do
     visit '/' # Visit root page
     click_link 'New Article' # click on new article
