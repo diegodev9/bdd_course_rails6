@@ -18,7 +18,7 @@
   <hr>
   <div class="row">
     <div class="col-12">
-      <%= form_with model: [@article, @comment], class: 'form-horizontal' do |f| %>
+      <%= form_with model: [@article, @comment], remote: true, class: 'form-horizontal' do |f| %>
         <% if @comment.errors.any? %>
           <div class="card card-danger offset-md-1">
             <h2 class="card-title">
@@ -54,15 +54,18 @@
     <div class="row">
       <div class="col-md-10">
         <% if @article.comments.present? %>
-          <% persisted_comments(@comments).each do |comment| %>
-            <div class="comment-body">
-              <%= comment.body %>
-            </div>
-            <div class="comment-time">
-              <%= time_ago_in_words(comment.created_at) %>
-              ago by <%= comment.user.email %>
-            </div>
-          <% end %>
+          <div id="messages">
+            <% persisted_comments(@comments).each do |comment| %>
+              <div class="comment-body">
+                <%= comment.body %>
+              </div>
+              <div class="comment-time">
+                <%= time_ago_in_words(comment.created_at) %>
+                ago by <%= comment.user.email %>
+              </div>
+              <hr>
+            <% end %>
+          </div>
         <% else %>
           There are no comments to show
         <% end %>
@@ -71,3 +74,25 @@
   </div>
 </article>
 
+<script>
+    App.cable.subscriptions.create({ channel: "ArticlesChannel", id: "<%= @article.id %>" }, {
+        connected() {
+            console.log("Connected to the channel:", this);
+        },
+        disconnected() {
+            console.log("Disconnected");
+        },
+        received(data) {
+            console.log("Received some data:", data);
+            $("#messages").prepend(`
+            <div class="comment-body">
+               ${data.body}
+            </div>
+            <div class="comment-time">
+              just now by ${data.user}
+            </div>
+            <hr>
+            `);
+        }
+    });
+</script>

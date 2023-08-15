@@ -2,17 +2,19 @@ class CommentsController < ApplicationController
   before_action :set_article
 
   def create
-    unless current_user
-    redirect_to new_user_session_path, alert: 'Please sign in or sing up first'
-    else
+    if current_user
       @comment = @article.comments.build(comment_params)
       @comment.user = current_user
 
       if @comment.save
-        redirect_to article_path(@article), notice: 'Comment has been created'
+        ArticlesChannel.broadcast_to(@article, body: @comment.body, user: @comment.user.email)
+        flash[:notice] = 'Comment has been created'
       else
-        redirect_to article_path(@article), alert: 'Comment has not been created'
+        flash[:alert] = 'Comment has not been created'
       end
+      redirect_to article_path(@article)
+    else
+      redirect_to new_user_session_path, alert: 'Please sign in or sing up first'
     end
   end
 
